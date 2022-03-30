@@ -10,15 +10,15 @@ class Tester(unittest.TestCase):
     def test_validate_integer_valid(self):
         result = calculator.is_number('2')
         self.assertEqual(result, True)
-    
+
     def test_validate_negative_integer_valid(self):
         result = calculator.is_number('-10')
         self.assertEqual(result, True)
-    
+
     def test_validate_float_valid(self):
         result = calculator.is_number('5.55')
         self.assertEqual(result, True)
-    
+
     def test_validate_negative_float_valid(self):
         result = calculator.is_number('-10.49')
         self.assertEqual(result, True)
@@ -26,15 +26,15 @@ class Tester(unittest.TestCase):
     def test_convert_integer(self):
         result = calculator.convert_number('10')
         self.assertEqual(result, 10)
-    
+
     def test_convert_negative_integer(self):
         result = calculator.convert_number('-250')
         self.assertEqual(result, -250)
-    
+
     def test_convert_float(self):
         result = calculator.convert_number('7.25')
         self.assertAlmostEqual(result, 7.25)
-    
+
     def test_convert_negative_float(self):
         result = calculator.convert_number('-15.06')
         self.assertAlmostEqual(result, -15.06)
@@ -146,6 +146,7 @@ class Tester(unittest.TestCase):
         a, b = -3, 0
         result = calculator.calc('/', a, b)
         self.assertEqual(result, None)
+
 
 def main():
     unittest.main()
