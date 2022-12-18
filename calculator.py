@@ -1,70 +1,64 @@
-def is_number(str):
+import re
+
+
+def simple_calculator():
+    while True:
+        a = ask_for_input("Please provide a number: ", is_number)
+        if a is None:
+            break
+        print(a)
+        op = ask_for_input("Please provide an operator (+, -, *, /): ", is_valid_operator)
+        if op is None:
+            break
+        print(op)
+        b = ask_for_input("Please provide another number: ", is_number)
+        print(b)
+        result = calc(op, convert_number(a), convert_number(b))
+        print(f"{a} {op} {b} = {result}")
+
+
+def ask_for_input(prompt, validation_func):
+    while True:
+        inp = input(prompt)
+        if validation_func(inp):
+            return inp
+        print("Invalid input, try again.")
+
+
+def is_number(string):
+    return bool(re.match(r"^-?\d+(\.\d+)?$", string))
+
+
+def convert_number(string):
     try:
-        if str == "0":
-            raise ValueError
-        float(str)
-        return True
+        return int(string)
     except ValueError:
-        return False
-
-
-def convert_number(str):
-    return float(str)
+        return float(string)
 
 
 def is_valid_operator(operator):
     return operator in ['+', '-', '*', '/']
 
 
-def ask_for_a_number(force_valid_input):
-    while True:
-        inp = input("Please provide a number: ")
-        if is_number(inp):
-            return float(inp)
-        else:
-            if not force_valid_input:
-                print("This didn't look like a number, try again.")
-                return None
-
-
-def ask_for_an_operator(force_valid_input):
-    while True:
-        operation = input("Please provide an operation (one of +, -, *, /): ")
-        if is_valid_operator(operation):
-            return operation
-        if not force_valid_input:
-            print("Unknown operation.")
-            return None
-
-
 def calc(operator, a, b):
-    if not is_valid_operator(operator) or not is_number(a) or not is_number(b):
+    operations = {
+        '+': lambda x, y: x + y,
+        '-': lambda x, y: x - y,
+        '*': lambda x, y: x * y,
+        '/': lambda x, y: x / y if y != 0 else None
+    }
+    if operator not in operations:
+        print("Error: Unknown operator")
         return None
-    result = None
-    if operator == '+':
-        result = a + b
-    elif operator == '-':
-        result = a - b
-    elif operator == '*':
-        result = a * b
-    elif operator == '/':
-        if b != 0:
-            result = a / b
-        else:
-            print("Error: Division by zero")
+    if operator == '/' and b == 0:
+        print("Error: Division by zero")
+        return None
+    try:
+        result = operations[operator](a, b)
+    except ZeroDivisionError:
+        print("Error: Division by zero")
+        result = None
     return result
-
-
-def simple_calculator():
-    while True:
-        a = ask_for_a_number(force_valid_input=False)
-        if not a:
-            break
-        op = ask_for_an_operator(force_valid_input=True)
-        b = ask_for_a_number(force_valid_input=True)
-        result = calc(op, a, b)
-        if result:
-            print(f"The result is {calc(op, a, b)}")
 
 
 if __name__ == '__main__':
