@@ -30,6 +30,7 @@ Please provide a number: hello
 ```
 
 ## Implementation Details
+
 The calculator is implemented in the main.py script and consists of several helper functions:
 
 - is_number(string): Returns True if the string can be converted to a numeric value (int or float), False otherwise.
@@ -38,4 +39,5 @@ The calculator is implemented in the main.py script and consists of several help
 - is_valid_operator(operator): Returns True if the operator is one of +, -, *, /, False otherwise.
 - ask_for_an_operator(force_valid_input=False): Asks the user for input and returns the operator if the input is valid. If force_valid_input is True, the function will continue to ask for input until the input is a valid operator. If force_valid_input is False and the input is not a valid operator, the function will return None.
 - calculate(number1, operator, number2): Performs the operation specified by the operator on the two numbers and returns the result.
+
 The calculator is designed to be run in a loop, where each iteration prompts the user for two numbers and an operator and performs the specified operation. If an invalid value is entered for the first number, the loop is broken and the calculator exits.
