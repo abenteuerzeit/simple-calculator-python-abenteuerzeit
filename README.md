@@ -10,28 +10,30 @@ This calculator requires Python 3.
 
 To use the calculator, clone or download the repository and run the main.py script:
 
-```
+```console
 git clone https://github.com/CodecoolGlobal/simple-calculator-python-abenteuerzeit.git
 cd simple-calculator-python-abenteuerzeit
-python3 main.py
+python3 calculator.py
 ```
+
 The calculator will then prompt you to enter two numbers and an operator:
 
-```
+```console
 Please provide a number: 5
 Please provide an operator (one of +, -, *, /): *
 Please provide a number: 7
 Result: 35
 ```
+
 The calculator will continue to run until you enter a non-numeric value for the first number:
 
-```
+```console
 Please provide a number: hello
 ```
 
 ## Implementation Details
 
-The calculator is implemented in the main.py script and consists of several helper functions:
+The calculator is implemented in the calculator.py script and consists of several helper functions:
 
 - is_number(string): Returns True if the string can be converted to a numeric value (int or float), False otherwise.
 - convert_number(string): Converts the string to a numeric value (int or float).
