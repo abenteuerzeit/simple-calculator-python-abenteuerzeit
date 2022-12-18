@@ -6,10 +6,11 @@ This is a simple calculator that can perform basic arithmetic operations.
 
 To use the calculator, run the simple_calculator function. The calculator will prompt the user to enter two numbers and an operator, and will then perform the specified operation on the numbers. The following operators are supported:
 
-+: addition
--: subtraction
-*: multiplication
-/: division
+1. +: addition
+2. -: subtraction
+3. *: multiplication
+4. /: division
+
 The calculator will continue to run until the user inputs None for one of the numbers or the operator.
 
 ## Validation
