@@ -1,45 +1,29 @@
 # Simple Calculator
 
-This is a simple command-line calculator implemented in Python 3. The calculator prompts the user to enter two numbers and an operator (e.g. +, -, *, /), performs the specified operation on the numbers, and prints the result. The calculator continues to run until the user enters a non-numeric value for the first number.
-
-## Requirements
-
-This calculator requires Python 3.
+This is a simple calculator that can perform basic arithmetic operations.
 
 ## Usage
 
-To use the calculator, clone or download the repository and run the main.py script:
+To use the calculator, run the simple_calculator function. The calculator will prompt the user to enter two numbers and an operator, and will then perform the specified operation on the numbers. The following operators are supported:
 
-```console
-git clone https://github.com/CodecoolGlobal/simple-calculator-python-abenteuerzeit.git
-cd simple-calculator-python-abenteuerzeit
-python3 calculator.py
-```
++: addition
+-: subtraction
+*: multiplication
+/: division
+The calculator will continue to run until the user inputs None for one of the numbers or the operator.
 
-The calculator will then prompt you to enter two numbers and an operator:
+## Validation
 
-```console
-Please provide a number: 5
-Please provide an operator (one of +, -, *, /): *
-Please provide a number: 7
-Result: 35
-```
+The calculator includes several validation checks to ensure that the input is valid. The is_number function is used to validate that the input is a number, and the is_valid_operator function is used to validate that the input is a supported operator. If the input is not valid, the user will be prompted to try again.
 
-The calculator will continue to run until you enter a non-numeric value for the first number:
+## Error Handling
 
-```console
-Please provide a number: hello
-```
+The calculator also includes error handling for division by zero errors. If the user attempts to divide by zero, the calculator will display an error message and return None as the result.
 
-## Implementation Details
+## Testing
 
-The calculator is implemented in the calculator.py script and consists of several helper functions:
+The calculator includes a test suite in the tests.py file. To run the tests, simply run the unittest module on the Tester class. The tests cover all of the main functionality of the calculator, including validation and error handling.
 
-- is_number(string): Returns True if the string can be converted to a numeric value (int or float), False otherwise.
-- convert_number(string): Converts the string to a numeric value (int or float).
-- ask_for_a_number(force_valid_input=False): Asks the user for input and returns the numeric value of the input string. If force_valid_input is True, the function will continue to ask for input until the input is a valid number. If force_valid_input is False and the input is not a valid number, the function will return None.
-- is_valid_operator(operator): Returns True if the operator is one of +, -, *, /, False otherwise.
-- ask_for_an_operator(force_valid_input=False): Asks the user for input and returns the operator if the input is valid. If force_valid_input is True, the function will continue to ask for input until the input is a valid operator. If force_valid_input is False and the input is not a valid operator, the function will return None.
-- calculate(number1, operator, number2): Performs the operation specified by the operator on the two numbers and returns the result.
+## Dependencies
 
-The calculator is designed to be run in a loop, where each iteration prompts the user for two numbers and an operator and performs the specified operation. If an invalid value is entered for the first number, the loop is broken and the calculator exits.
+The calculator relies on the re module for input validation. This module is part of the Python standard library and does not need to be installed separately.
